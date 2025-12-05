@@ -13,6 +13,7 @@ export default function ARTryOn() {
   const containerRef = useRef(null);
   const [outfits, setOutfits] = useState([]);
   const [selected, setSelected] = useState(null);
+  const [verticalOffset, setVerticalOffset] = useState(0); // Range: -100 to 100
 
   // Three.js refs
   const sceneRef = useRef(null);
@@ -132,7 +133,7 @@ export default function ARTryOn() {
       camera.stop && camera.stop();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selected]);
+  }, [selected, verticalOffset]);
 
   // 5) Pose Loop
   function onPoseResults(results) {
@@ -212,6 +213,18 @@ export default function ARTryOn() {
 
       const shoulderWidth = vLS.distanceTo(vRS);
       const hipWidth = vLH.distanceTo(vRH);
+
+      // Apply Vertical Offset (User Adjusted)
+      // We shift all anchor points up/down by verticalOffset
+      // Note: In Three.js Y is up, but our coords are inverted Y?
+      // Let's check toVec: -(l.y - 0.5) * H. So +Y is UP in 3D space.
+      // If user wants shirt HIGHER, we need to add to Y.
+      const offsetVec = new THREE.Vector3(0, verticalOffset, 0);
+
+      vLS.add(offsetVec);
+      vRS.add(offsetVec);
+      vLH.add(offsetVec);
+      vRH.add(offsetVec);
 
       const vLS_ext = vLS.clone().addScaledVector(shoulderDir, -shoulderWidth * 0.3);
       const vRS_ext = vRS.clone().addScaledVector(shoulderDir, shoulderWidth * 0.3);
@@ -294,6 +307,30 @@ export default function ARTryOn() {
           pointerEvents: "none", // Let clicks pass through
         }}
       />
+
+      {/* Controls */}
+      <div style={{
+        position: 'absolute',
+        top: 20,
+        right: 20,
+        zIndex: 10,
+        background: 'rgba(0,0,0,0.5)',
+        padding: '10px',
+        borderRadius: '8px',
+        color: 'white'
+      }}>
+        <label>
+          Height Adjust: {verticalOffset}
+          <br />
+          <input
+            type="range"
+            min="-150"
+            max="150"
+            value={verticalOffset}
+            onChange={(e) => setVerticalOffset(Number(e.target.value))}
+          />
+        </label>
+      </div>
 
       <OutfitCarousel
         outfits={outfits}
