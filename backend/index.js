@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const path = require('path');
-const outfitsRoute = require('./routes/outfits');
+const outfitsRoute = require('./routes/Outfits');
 require('dotenv').config();
 
 
