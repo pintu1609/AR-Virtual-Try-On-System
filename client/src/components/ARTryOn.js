@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import OutfitCarousel from "./OutfitCarousel";
 import { Camera } from "@mediapipe/camera_utils";
-import { createPoseModel } from "../utils/posemodel";
+import { createPoseModel } from "../utils/poseModel";
 import * as THREE from "three";
 
 
