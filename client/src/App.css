@@ -1,0 +1,138 @@
+/* Root layout */
+.app-root {
+  font-family: Arial, sans-serif;
+  background: #f4f6fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  background: #00d4ff;
+  color: #000;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  padding: 20px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Main layout (Try-On + Admin side panel) */
+.main-layout {
+  display: flex;
+  height: calc(100vh - 80px);
+  gap: 0;
+}
+
+/* Main AR panel */
+.main-panel {
+  flex: 3;
+  background: #ffffff;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Admin Upload Panel */
+.admin-panel {
+  flex: 1;
+  background: #181818;
+  color: white;
+  padding: 20px;
+  overflow-y: auto;
+  border-left: 4px solid #00d4ff;
+}
+
+/* Inputs & Buttons */
+input, button {
+  outline: none;
+}
+
+input {
+  border-radius: 6px;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+  transition: 0.2s;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+  .main-layout {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .main-panel,
+  .admin-panel {
+    width: 100%;
+    height: auto;
+  }
+
+  .admin-panel {
+    border-left: none;
+    border-top: 4px solid #00d4ff;
+  }
+}
+
+/* Admin Upload Section */
+.admin-panel h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #00d4ff;
+}
+
+/* Form Layout */
+.admin-panel form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Inputs */
+.admin-panel input {
+  width: 90%;
+  background: #2c2c2c;
+  color: #ffffff;
+  border: 2px solid #00d4ff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.admin-panel input::placeholder {
+  color: #a0a0a0;
+}
+
+/* Focus Effect */
+.admin-panel input:focus {
+  border-color: #ffffff;
+  background: #1e1e1e;
+  box-shadow: 0 0 8px #00d4ff;
+}
+
+/* Upload Button */
+.admin-panel button {
+  background: #00d4ff;
+  color: #000;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+  width: max-content;
+  margin: 0 auto;
+}
+
+.admin-panel button:hover {
+  background: #08bfe2;
+  transform: scale(1.05);
+}

@@ -1,0 +1,65 @@
+# ------------------------
+# Python
+# ------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+
+# Virtual environments
+venv/
+.venv/
+fastapi-service/venv/
+fastapi-service/.venv/
+
+# FastAPI env
+fastapi-service/.env
+
+# ------------------------
+# Node / JavaScript
+# ------------------------
+node_modules/
+frontend/node_modules/
+node-backend/node_modules/
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build / Output
+dist/
+build/
+.next/
+out/
+frontend/.next/
+frontend/out/
+
+# ------------------------
+# Environments
+# ------------------------
+.env
+.env.local
+.env.*.local
+frontend/.env
+node-backend/.env
+
+# ------------------------
+# OS & Editor
+# ------------------------
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ------------------------
+# Logs
+# ------------------------
+*.log
+
+# ------------------------
+# Others
+# ------------------------
+package-lock.json
