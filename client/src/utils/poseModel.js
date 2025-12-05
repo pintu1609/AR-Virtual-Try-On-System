@@ -10,7 +10,7 @@ export function createPoseModel(onResults) {
   pose.setOptions({
     modelComplexity: 2,
     smoothLandmarks: true,
-    enableSegmentation: false,
+    enableSegmentation: true,
     minDetectionConfidence: 0.5,
     minTrackingConfidence: 0.5,
   });
