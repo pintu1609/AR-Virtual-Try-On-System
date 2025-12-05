@@ -26,12 +26,12 @@ export default function ARTryOn() {
   useEffect(() => {
     async function loadOutfits() {
       try {
-        const res = await fetch("http://localhost:5000/api/outfits");
+        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/outfits`);
         const data = await res.json();
         const mapped = data.map((o) => ({
           _id: o._id,
           name: o.name,
-          url: `http://localhost:5000/uploads/${o.filename}`,
+          url:`${process.env.REACT_APP_BACKEND_URL}/uploads/${o.filename}`,
         }));
         setOutfits(mapped);
       } catch (err) {

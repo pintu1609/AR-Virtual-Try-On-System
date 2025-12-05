@@ -20,7 +20,7 @@ data.append("price", form.price);
 data.append("image", form.image);
 
 
-await fetch("http://localhost:5000/api/outfits/upload", {
+await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/outfits/upload`, {
 method: "POST",
 body: data,
 });

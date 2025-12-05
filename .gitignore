@@ -42,8 +42,8 @@ frontend/out/
 .env
 .env.local
 .env.*.local
-frontend/.env
-node-backend/.env
+client/.env
+backend/.env
 
 # ------------------------
 # OS & Editor
